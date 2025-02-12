@@ -31,8 +31,10 @@ public class CompraService {
     public Compra salvarCompra(Compra compra) {
         Usuario usuario = usuarioService.getUsuario(compra.getUsuario());
 
+        double valorCompra = 0;
         for (String produtoId: compra.getProdutos()) {
             Produto produto = produtoService.getProduto(produtoId);
+            valorCompra += produto.getPreco();
         }
 
         for (String produtoId: compra.getProdutos()) {
@@ -42,7 +44,7 @@ public class CompraService {
         compra.setNome(usuario.getNome());
         compra.setDataCompra(LocalDateTime.now());
 
-        eventoService.salvarEvento(usuario.getEmail(), "Compra realizada");
+        eventoService.salvarEvento(usuario.getEmail(), "Compra realizada com sucesso no valor de R$ " + valorCompra);
         return compraRepository.save(compra);
     }
 
