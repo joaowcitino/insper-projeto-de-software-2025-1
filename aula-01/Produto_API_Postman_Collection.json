@@ -1,0 +1,82 @@
+{
+    "info": {
+        "name": "Produto API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Criar Produto",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"nome\": \"Mouse Gamer\",\n    \"preco\": 150.0,\n    \"quantidade\": 20\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/produtos",
+                    "host": [
+                        "http://localhost:8080"
+                    ],
+                    "path": [
+                        "produtos"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Buscar Produto por ID",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/produtos/{{id}}",
+                    "host": [
+                        "http://localhost:8080"
+                    ],
+                    "path": [
+                        "produtos",
+                        "{{id}}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Diminuir Quantidade do Produto",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:8080/produtos/{{id}}/diminuir/{{quantidade}}",
+                    "host": [
+                        "http://localhost:8080"
+                    ],
+                    "path": [
+                        "produtos",
+                        "{{id}}",
+                        "diminuir",
+                        "{{quantidade}}"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Listar Produtos",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8080/produtos",
+                    "host": [
+                        "http://localhost:8080"
+                    ],
+                    "path": [
+                        "produtos"
+                    ]
+                }
+            }
+        }
+    ]
+}
