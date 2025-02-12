@@ -15,7 +15,7 @@ import br.insper.produto.model.Produto;
 import br.insper.produto.service.ProdutoService;
 
 @RestController
-@RequestMapping("/produtos")
+@RequestMapping("/api/produtos")
 public class ProdutoController {
 
     private final ProdutoService produtoService;
